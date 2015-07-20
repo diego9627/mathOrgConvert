@@ -1,0 +1,37 @@
+name:                mathOrgMD
+version:             0.1.0.0
+synopsis:            Converts LaTeX to MD+LaTeX+mathOrg specific syntax
+description:         Please see README.md
+homepage:            http://github.com/name/project
+license:             BSD3
+license-file:        LICENSE
+author:              Diego Roque
+maintainer:          droque@mit.edu
+-- copyright:           
+category:            Text
+build-type:          Simple
+-- extra-source-files:  
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Converter
+  build-depends:       base >= 4.7 && < 5
+                     , regex-compat
+                     , regex-posix
+                     , pandoc
+                     , pandoc-types
+  default-language:    Haskell2010
+
+executable mathOrgConvert
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , mathOrgMD
+                     , pandoc
+  default-language:    Haskell2010
+
+--source-repository head
+--  type:     git
+--  location: https://github.com/name/project
